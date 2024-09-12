@@ -21,7 +21,7 @@ public class Application {
 
 	@GetMapping("/")
 	public String api() {
-		return String.format("[KETERAPI%s] - %s | %s ", 
+		return String.format("[KETERAPI%s] - %s (%s) ", 
         this.gerarNumeroChamado(), 
         SISTEMA, 
         VERSAO);
