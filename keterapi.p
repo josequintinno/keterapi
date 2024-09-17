@@ -10,6 +10,7 @@
         
             🔵 feature: Implementar classe de entidade referente aos Associados gerenciados pelo sistema
             🔵 feature: Configurar acesso ao banco de dados PostgreSQL
+            🔵 feature: Configurar FlyWay ao projeto
 
             🔵 feature:
             🔴 hotfix:
