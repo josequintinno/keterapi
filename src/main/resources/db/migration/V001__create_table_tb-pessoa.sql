@@ -12,6 +12,9 @@ create table if not exists tb_pessoa (
 	constraint un_pessoa_nome unique (nome_completo, data_nascimento)
 );
 
+create index in_pessoa_nome_completo on tb_pessoa (nome_completo);
+create index in_pessoa_data_nascimento on tb_pessoa (data_nascimento);
+
 comment on table tb_pessoa is 'Armazena os dados de todos as pessoas associadas';
 comment on column tb_pessoa.codigo is 'Identificador Único da Tabela';
 comment on column tb_pessoa.nome_completo is 'Refere-se ao nome romanizado (caracteres latinos) da pessoa';
