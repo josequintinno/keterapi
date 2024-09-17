@@ -24,6 +24,11 @@
 
             🔵 feature: Implementar endpoint da funcionalidade de pessoas
 
+        KETERAPI20240917141457
+
+            🔵 feature: Implementar endpoint da funcionalidade de gestão de usuários do sistema
+            🔵 feature: Implementar gerenciamento de acessos da API com JWT
+
             🔵 feature:
             🔴 hotfix:
             🟠 bugfix:
