@@ -1,6 +1,8 @@
 package br.com.quintinno.keterapi.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -47,6 +49,16 @@ public class PessoaController {
     @PostMapping("{codigo}")
     public String desativar(@PathVariable Long codigo) {
         return this.pessoaService.desativar(codigo);
+    }
+
+    @GetMapping("/info")
+    public Map<String, String> info() {
+        Map<String, String> info = new HashMap<>();
+            info.put("nomeCompleto", "");
+            info.put("nomeTrascrito", "");
+            info.put("dataNascimento", "");
+            info.put("eAtivo", "true");
+        return info;
     }
 
 }
