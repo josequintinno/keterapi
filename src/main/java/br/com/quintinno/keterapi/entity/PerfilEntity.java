@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_perfil")
-public class PerfilUsuario implements Serializable {
+public class PerfilEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -23,7 +23,7 @@ public class PerfilUsuario implements Serializable {
     @Column(name = "descricao", length = 100, unique = true, nullable = false)
     private String descricao;
 
-    public PerfilUsuario() { }
+    public PerfilEntity() { }
 
     public Long getCodigo() {
         return codigo;
@@ -58,7 +58,7 @@ public class PerfilUsuario implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        PerfilUsuario other = (PerfilUsuario) obj;
+        PerfilEntity other = (PerfilEntity) obj;
         if (codigo == null) {
             if (other.codigo != null)
                 return false;
