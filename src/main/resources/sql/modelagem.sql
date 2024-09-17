@@ -6,6 +6,7 @@
     Data de Criação: 12/09/2024
 */
 
+drop table tb_tipo_relacionamento cascade;
 drop table tb_pessoa cascade;
 
 create table if not exists tb_arquivo (
@@ -69,13 +70,35 @@ comment on column tb_pessoa.nome_transcrito is 'Refere-se ao nome com caracteres
 comment on column tb_pessoa.data_nascimento is 'Refere-se a data de nascimento da pessoa';
 comment on column tb_pessoa.e_ativo is 'Identifica se a pessoa esta ativa';
 
+create table if not exists tb_tipo_relacionamento (
+	codigo serial not null,
+	descricao varchar (100) not null,
+	constraint pk_tipo_relacionamento_codigo primary key (codigo),
+	constraint un_tipo_relacionamento_descricao unique (descricao)
+);
+
+comment on table tb_associado is 'Armazena os dados de todos os tipos de relacionamentos';
+comment on column tb_associado.codigo is 'Identificador Único da Tabela';
+comment on column tb_associado.descricao is 'Nome descritivo do tipo de relacionamento entre os associados gerenciados pelo sistema';
+
+insert into tb_tipo_relacionamento (descricao) values ('Responsável Familiar');
+insert into tb_tipo_relacionamento (descricao) values ('Pai');
+insert into tb_tipo_relacionamento (descricao) values ('Mãe');
+insert into tb_tipo_relacionamento (descricao) values ('Tio');
+insert into tb_tipo_relacionamento (descricao) values ('Tia');
+insert into tb_tipo_relacionamento (descricao) values ('Filho');
+insert into tb_tipo_relacionamento (descricao) values ('Filha');
+
 create table if not exists tb_associado (
-	codigo
-	id_pessoa_associado_principal
-	id_pessoa_dependente
-	id_relacionamento
-	data_inicio_vinculo
-	data_final_vinculo
+	codigo serial not null,
+	id_pessoa_associado_principal integer not null,
+	id_pessoa_dependente integer not null,
+	id_tipo_relacionamento integer not null,
+	data_inicio_vinculo date not null default now(),
+	data_final_vinculo date null,
+	constraint pk_associado_codigo primary key (codigo),
+	constraint fk_associado_pessoa_associado_principal foreign key (id_pessoa_associado_principal) references tb_pessoa (codigo),
+	constraint fk_associado_pessoa_dependente foreign key (id_pessoa_dependente) references tb_pessoa (codigo)
 );
 
 comment on table tb_associado is 'Armazena os dados de todos as pessoas associadas';

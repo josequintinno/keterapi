@@ -6,6 +6,11 @@
 
             🔵 feature: Implementar modelagem de dados dos Associados
 
+        KETERAPI20240917094925
+        
+            🔵 feature: Implementar classe de entidade referente aos Associados gerenciados pelo sistema
+            🔵 feature: Configurar acesso ao banco de dados PostgreSQL
+
             🔵 feature:
             🔴 hotfix:
             🟠 bugfix:
