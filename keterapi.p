@@ -1,5 +1,10 @@
 ### KETERAPI: Sistema Gerenciador de Associados
 
+    -- Comandos
+
+        -- Consultar endpoint GET
+            curl https://localhost:8080 -o resposta.json
+
     -- Tarefas
 
         KETERAPI20240912174856
