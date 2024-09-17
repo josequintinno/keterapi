@@ -6,6 +6,8 @@ public class PessoaResponseTransfer {
 
     private String nome;
 
+    private String situacao;
+
     public PessoaResponseTransfer() { }
 
     public Long getCodigo() {
@@ -22,6 +24,14 @@ public class PessoaResponseTransfer {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
 
 }

@@ -39,6 +39,7 @@ public class PessoaEntity {
         PessoaResponseTransfer pessoaResponseTransfer = new PessoaResponseTransfer();
             pessoaResponseTransfer.setCodigo(pessoaEntity.getCodigo());
             pessoaResponseTransfer.setNome(pessoaEntity.getNomeCompleto());
+            pessoaResponseTransfer.setSituacao(pessoaEntity.geteAtivo() ? "Ativo" : "Inativo");
         return pessoaResponseTransfer;
     }
 
