@@ -44,4 +44,18 @@ public class PessoaService {
         return pessoaEntityCadastro;
     }
 
+    public String delete(Long codigo) {
+        Optional<PessoaEntity> pessoaEntityOptional = this.pessoaRepository.findById(codigo);
+        PessoaEntity pessoaEntity = pessoaEntityOptional.get();
+            pessoaEntity.setCodigo(codigo);
+        if (pessoaEntityOptional.isPresent()) {
+            this.pessoaRepository.delete(pessoaEntity);
+        }
+        return String.format("A pessoa \"%s\" foi excluida com sucesso!", pessoaEntity.getNomeCompleto());
+    }
+
+    public String desativar(Long codigo) {
+        return null;
+    }
+
 }
