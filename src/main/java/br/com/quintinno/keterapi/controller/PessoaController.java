@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.quintinno.keterapi.PessoaService;
 import br.com.quintinno.keterapi.entity.PessoaEntity;
+import br.com.quintinno.keterapi.service.PessoaService;
 
 @RestController
 @RequestMapping("/api/v1/pessoa")

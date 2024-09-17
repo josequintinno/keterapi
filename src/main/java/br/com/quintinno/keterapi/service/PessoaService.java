@@ -1,4 +1,4 @@
-package br.com.quintinno.keterapi;
+package br.com.quintinno.keterapi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

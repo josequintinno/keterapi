@@ -21,7 +21,7 @@ public class PessoaEntity {
     @Column(name = "nome_completo", length = 200, nullable = false)
     private String nomeCompleto;
 
-    @Column(name = "nome_transcrito", length = 200)
+    @Column(name = "nome_transcrito", length = 200, unique = true, nullable = false)
     private String nomeTrascrito;
 
     @Column(name = "data_nascimento")
@@ -30,7 +30,9 @@ public class PessoaEntity {
     @Column(name = "e_ativo", nullable = false)
     private Boolean eAtivo;
 
-    public PessoaEntity() {}
+    public PessoaEntity() {
+        this.eAtivo = true;
+    }
 
     public Long getCodigo() {
         return codigo;

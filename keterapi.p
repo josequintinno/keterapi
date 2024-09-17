@@ -5,7 +5,7 @@
         -- Consultar endpoint GET
 
             curl https://localhost:8080 -o resposta.json
-            curl -X POST "http://localhost:8080/api/v1/pessoa" -H "Content-Type: application/json" -d '{"nomeCompleto": "José Quintinno"}'
+            curl -X POST "http://localhost:8080/api/v1/pessoa" -H "Content-Type: application/json" -d '{"nomeCompleto": "Grianrumo Noan Grotiagui Touim"}'
 
     -- Tarefas
 

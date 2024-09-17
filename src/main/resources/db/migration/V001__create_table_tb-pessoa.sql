@@ -9,7 +9,7 @@ create table if not exists tb_pessoa (
 	data_nascimento date null,
 	e_ativo boolean not null default true,
 	constraint pk_pessoa_codigo primary key (codigo),
-	constraint un_pessoa_nome unique (nome_completo, data_nascimento)
+	constraint un_pessoa_nome unique (nome_completo)
 );
 
 create index in_pessoa_nome_completo on tb_pessoa (nome_completo);
