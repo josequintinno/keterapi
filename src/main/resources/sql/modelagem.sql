@@ -6,6 +6,8 @@
     Data de Criação: 12/09/2024
 */
 
+drop table tb_pessoa cascade;
+
 create table if not exists tb_arquivo (
 	codigo
 	id_pessoa_responsavel
