@@ -44,3 +44,10 @@ create table if not exists tb_documento (
 	data_cadastro	
 	data_atualizacao
 );
+
+insert into tb_usuario (id_pessoa, id_perfil, id_situacao_usuario, identificador, senha) values (
+	(select codigo from tb_pessoa where nome_completo = 'Deidiborn Riteaborn Barahewu Xioarten'),
+	(select codigo from tb_perfil where descricao = 'DIRETOR'),
+	(select codigo from tb_situacao_usuario where descricao = 'HABILITADO'),
+	'82625688009', 'i@f62nqnkLBe5j}4JE|!*,KoPz.:9>$Z'
+);
