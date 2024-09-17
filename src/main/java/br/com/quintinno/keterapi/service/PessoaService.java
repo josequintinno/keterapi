@@ -55,7 +55,14 @@ public class PessoaService {
     }
 
     public String desativar(Long codigo) {
-        return null;
+        Optional<PessoaEntity> pessoaEntityOptional = this.pessoaRepository.findById(codigo);
+        PessoaEntity pessoaEntity = pessoaEntityOptional.get();
+            pessoaEntity.setCodigo(codigo);
+            pessoaEntity.seteAtivo(false);
+        if (pessoaEntityOptional.isPresent()) {
+            this.pessoaRepository.save(pessoaEntity);
+        }
+        return String.format("A pessoa \"%s\" foi desativada com sucesso!", pessoaEntity.getNomeCompleto());
     }
 
 }
