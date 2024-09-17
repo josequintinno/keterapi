@@ -29,6 +29,10 @@
             🔵 feature: Implementar endpoint da funcionalidade de gestão de usuários do sistema
             🔵 feature: Implementar gerenciamento de acessos da API com JWT
 
+        KETERAPI20240917201550
+
+            🟡 refactor: Remover método de consulta de pessoas ativas do sistema
+
             🔵 feature:
             🔴 hotfix:
             🟠 bugfix:
