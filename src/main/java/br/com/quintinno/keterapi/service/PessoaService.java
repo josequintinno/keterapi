@@ -34,6 +34,7 @@ public class PessoaService {
         Optional<PessoaEntity> pessoaEntityOptional = this.pessoaRepository.findById(pessoaEntity.getCodigo());
         PessoaEntity pessoaEntityCadastro = new PessoaEntity();
         if (pessoaEntityOptional.isPresent()) {
+            pessoaEntityCadastro.setCodigo(pessoaEntity.getCodigo());
             pessoaEntityCadastro.setNomeCompleto(pessoaEntity.getNomeCompleto());
             pessoaEntityCadastro.setDataNascimento(pessoaEntity.getDataNascimento());
             pessoaEntityCadastro.setNomeTrascrito(pessoaEntity.getNomeTrascrito());
