@@ -6,6 +6,7 @@
 
             curl https://localhost:8080 -o resposta.json
             curl -X POST "http://localhost:8080/api/v1/pessoa" -H "Content-Type: application/json" -d '{"nomeCompleto": "Grianrumo Noan Grotiagui Touim"}'
+            curl -s "http://localhost:8080/api/v1/pessoa" | jq
 
     -- Tarefas
 

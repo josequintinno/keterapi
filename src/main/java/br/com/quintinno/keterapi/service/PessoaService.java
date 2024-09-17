@@ -1,5 +1,7 @@
 package br.com.quintinno.keterapi.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class PessoaService {
 
     public PessoaEntity create(PessoaEntity pessoaEntity) {
         return this.pessoaRepository.save(pessoaEntity);
+    }
+
+    public List<PessoaEntity> findAll() {
+        return this.pessoaRepository.findAll();
     }
 
 }
