@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.quintinno.keterapi.entity.PessoaEntity;
 import br.com.quintinno.keterapi.service.PessoaService;
+import br.com.quintinno.keterapi.transfer.PessoaResponseTransfer;
 
 @RestController
 @RequestMapping("/api/v1/pessoa")
@@ -25,7 +26,7 @@ public class PessoaController {
     }
 
     @GetMapping
-    public List<PessoaEntity> findAll() {
+    public List<PessoaResponseTransfer> findAll() {
         return this.pessoaService.findAll();
     }
 

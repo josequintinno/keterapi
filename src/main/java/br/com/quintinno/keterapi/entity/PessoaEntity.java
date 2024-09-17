@@ -2,6 +2,7 @@ package br.com.quintinno.keterapi.entity;
 
 import java.time.LocalDate;
 
+import br.com.quintinno.keterapi.transfer.PessoaResponseTransfer;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +33,13 @@ public class PessoaEntity {
 
     public PessoaEntity() {
         this.eAtivo = true;
+    }
+
+    public static PessoaResponseTransfer convertEntityTransfer(PessoaEntity pessoaEntity) {
+        PessoaResponseTransfer pessoaResponseTransfer = new PessoaResponseTransfer();
+            pessoaResponseTransfer.setCodigo(pessoaEntity.getCodigo());
+            pessoaResponseTransfer.setNome(pessoaEntity.getNomeCompleto());
+        return pessoaResponseTransfer;
     }
 
     public Long getCodigo() {
