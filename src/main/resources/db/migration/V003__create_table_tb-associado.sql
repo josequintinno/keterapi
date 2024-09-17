@@ -6,6 +6,7 @@ create table if not exists tb_associado (
 	data_inicial_vinculo_associacao date not null default now(),
 	data_final_vinculo_associacao date null,
 	constraint pk_associado_codigo primary key (codigo),
+	constraint fk_associado_tipo_relacionamento foreign key (id_tipo_relacionamento) references tb_tipo_relacionamento (codigo),
 	constraint fk_associado_pessoa_associado_principal foreign key (id_pessoa_associado_principal) references tb_pessoa (codigo),
 	constraint fk_associado_pessoa_dependente foreign key (id_pessoa_dependente) references tb_pessoa (codigo) 
 		on delete cascade 
