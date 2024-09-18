@@ -8,6 +8,8 @@ git clone https://github.com/josequintinno/keterapi.git
 echo "Acessando o Diretório..."
 cd keterapi
 
+rm -rf target/
+
 echo "Instalando dependências e construindo o projeto..."
 mvn clean install -DskipTests -X -U
 
