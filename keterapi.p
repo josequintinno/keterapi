@@ -8,6 +8,7 @@
             curl -X POST "http://localhost:8080/api/v1/pessoa" -H "Content-Type: application/json" -d '{"nomeCompleto": "Grianrumo Noan Grotiagui Touim"}'
             curl -s "http://localhost:8080/api/v1/pessoa" | jq
             curl -s -X PUT "http://localhost:8080/api/v1/pessoa/6" -H "Content-Type: application/json" -d '{"nomeCompleto": "Samuel Mariano"}' | jq
+            curl -s -X GET "http://localhost:8080/api/v1/pessoa/filter?nome=Samuel+Evandro" | jq
 
     -- Tarefas
 

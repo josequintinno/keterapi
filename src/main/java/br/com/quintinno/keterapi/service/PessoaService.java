@@ -1,26 +1,28 @@
 package br.com.quintinno.keterapi.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import br.com.quintinno.keterapi.converter.PessoaConverter;
 import br.com.quintinno.keterapi.entity.PessoaEntity;
 import br.com.quintinno.keterapi.repository.PessoaImplementRepository;
 import br.com.quintinno.keterapi.repository.PessoaRepository;
-import br.com.quintinno.keterapi.transfer.PessoaFiltroTransfer;
 import br.com.quintinno.keterapi.transfer.PessoaResponseTransfer;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PessoaService {
 
-    @Autowired
-    public PessoaRepository pessoaRepository;
+    public final PessoaRepository pessoaRepository;
 
-    @Autowired
     public PessoaImplementRepository pessoaImplementRepository;
+
+    public PessoaService(PessoaRepository pessoaRepository, PessoaImplementRepository pessoaImplementRepository) {
+        this.pessoaRepository = pessoaRepository;
+        this.pessoaImplementRepository = pessoaImplementRepository;
+    }
 
     public PessoaEntity create(PessoaEntity pessoaEntity) {
         return this.pessoaRepository.save(pessoaEntity);
@@ -70,10 +72,11 @@ public class PessoaService {
         return String.format("A pessoa \"%s\" foi desativada com sucesso!", pessoaEntity.getNomeCompleto());
     }
 
-    public List<PessoaFiltroTransfer> findAllFilter(String nome) {
-        List<PessoaFiltroTransfer> pessoaFiltroTransferList = new ArrayList<>(); 
-        List<PessoaFiltroTransfer> pessoaEntityList = this.pessoaImplementRepository.recuperarPessoaFiltroTransfer(nome);
-        return pessoaFiltroTransferList;
+    public List<PessoaResponseTransfer> findAllFilter(String nome) {
+        List<PessoaEntity> pessoaEntityList = this.pessoaImplementRepository.recuperarPessoaFiltroTransfer(nome);
+        return pessoaEntityList.stream()
+                .map(PessoaConverter::converterPessoaEntityToPessoaFilterTransfer)
+                .collect(Collectors.toList());
     }
 
 }
