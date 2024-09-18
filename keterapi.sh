@@ -9,7 +9,7 @@ mvn clean install -DskipTests > build.log 2>&1 &
 
 wait
 
-IP=$(ip -4 addr show scope global | awk '/inet / {print $2}' | cut -d/ -f1 | head -n1)
+IP=ifconfig
 DATA_HORA=$(date +"%d/%m/%Y %H:%M:%S")
 
 echo "APLICAÇÃO: KETER: Sistema Gerenciador de Associados"
