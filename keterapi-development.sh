@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Construindo o projeto KETERAPI no ambiente de Desenvolvimento..."
-mvn clean install -DskipTests > keterapi-build.log 2>&1 &
+#mvn clean install -DskipTests > keterapi-build.log 2>&1 &
 
 wait
 

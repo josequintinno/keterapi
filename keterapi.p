@@ -33,6 +33,10 @@
 
             🟡 refactor: Remover método de consulta de pessoas ativas do sistema
 
+        KETERAPI20240918102204
+
+            🔵 feature: Implementar tratamento de Erros ao realizar requisicoes aos endpoints da funcionalidade de cadastro de pessoas
+
             🔵 feature:
             🔴 hotfix:
             🟠 bugfix:
