@@ -1,9 +1,6 @@
 #!/bin/bash
 
-set -e  # Faz com que o script pare se algum comando falhar
-
-echo "Navegando para o diretório de aplicações..."
-cd /data/data/com.termux/files/home/application
+set -e
 
 echo "Clonando o repositório..."
 git clone https://github.com/josequintinno/keterapi.git
