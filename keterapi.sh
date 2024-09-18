@@ -5,7 +5,7 @@ set -e
 rm -rf target/
 
 echo "Instalando dependências e construindo o projeto KETERAPI"
-mvn clean install -DskipTests -X -U
+mvn clean install -DskipTests
 
 if [ -f target/keterapi-1.0.0-SNAPSHOT.jar ]; then
     echo "Executando a aplicação KETERAPI..."
