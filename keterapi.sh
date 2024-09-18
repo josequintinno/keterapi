@@ -2,12 +2,6 @@
 
 set -e
 
-echo "Clonando o repositório..."
-git clone https://github.com/josequintinno/keterapi.git
-
-echo "Acessando o Diretório..."
-cd keterapi
-
 rm -rf target/
 
 echo "Instalando dependências e construindo o projeto..."
