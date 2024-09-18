@@ -5,16 +5,18 @@ set -e
 rm -rf target/
 
 echo "Instalando dependências e construindo o projeto KETERAPI"
-mvn clean install -DskipTests
+mvn clean install -DskipTests > build.log 2>&1 &
+
+wait
 
 if [ -f target/keterapi-1.0.0-SNAPSHOT.jar ]; then
     echo "Executando a aplicação KETERAPI..."
     java -jar target/keterapi-1.0.0-SNAPSHOT.jar --spring.profiles.active=production
 else
-    echo "Erro: O arquivo JAR não foi encontrado. Certifique-se de que a construção foi bem-sucedida."
+    echo "Erro: O arquivo JAR não foi encontrado."
     exit 1
 fi
-
+waitwait
 echo "Executando a aplicação KETERAPI"
 java -jar target/keterapi-1.0.0-SNAPSHOT.jar --spring.profiles.active=production
 
