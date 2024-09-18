@@ -31,9 +31,7 @@ public class PessoaService {
     public List<PessoaResponseTransfer> findAll() {
         List<PessoaResponseTransfer> pessoaResponseTransferList = new ArrayList<>();
         List<PessoaEntity> pessoaEntityList = this.pessoaRepository.findAll();
-        pessoaEntityList.forEach(pessoaEntity -> {
-            pessoaResponseTransferList.add(PessoaEntity.convertEntityTransfer(pessoaEntity));
-        });
+        pessoaEntityList.forEach(pessoaEntity -> pessoaResponseTransferList.add(PessoaEntity.convertEntityTransfer(pessoaEntity)));
         return pessoaResponseTransferList;
     }
 
@@ -53,9 +51,11 @@ public class PessoaService {
 
     public String delete(Long codigo) {
         Optional<PessoaEntity> pessoaEntityOptional = this.pessoaRepository.findById(codigo);
-        PessoaEntity pessoaEntity = pessoaEntityOptional.get();
+        PessoaEntity pessoaEntity = new PessoaEntity();
             pessoaEntity.setCodigo(codigo);
         if (pessoaEntityOptional.isPresent()) {
+            pessoaEntity = pessoaEntityOptional.get();
+            pessoaEntity.setCodigo(codigo);
             this.pessoaRepository.delete(pessoaEntity);
         }
         return String.format("A pessoa \"%s\" foi excluida com sucesso!", pessoaEntity.getNomeCompleto());
@@ -63,10 +63,11 @@ public class PessoaService {
 
     public String desativar(Long codigo) {
         Optional<PessoaEntity> pessoaEntityOptional = this.pessoaRepository.findById(codigo);
-        PessoaEntity pessoaEntity = pessoaEntityOptional.get();
+        PessoaEntity pessoaEntity = new PessoaEntity();
+        if (pessoaEntityOptional.isPresent()) {
+            pessoaEntity = pessoaEntityOptional.get();
             pessoaEntity.setCodigo(codigo);
             pessoaEntity.seteAtivo(false);
-        if (pessoaEntityOptional.isPresent()) {
             this.pessoaRepository.save(pessoaEntity);
         }
         return String.format("A pessoa \"%s\" foi desativada com sucesso!", pessoaEntity.getNomeCompleto());

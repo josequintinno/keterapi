@@ -42,6 +42,7 @@
         KETERAPI20240918145756
 
             🔵 feature: Permite consultar dados por na funcionalidade de cadastro de pessoas
+            🟡 refactor: Refactor de implementacoes
 
             🔵 feature:
             🔴 hotfix:
