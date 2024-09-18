@@ -35,7 +35,7 @@ public class GlobalException {
 
     @ExceptionHandler(NoResourceFoundException.class)
     public ResponseEntity<Object> noResourceFoundException(NoResourceFoundException noResourceFoundException) {
-        return new ResponseEntity<>(exceptionTransfer("Os dados passados na requisicao nao sao validos!", HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase()), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(exceptionTransfer("O recurso requisitado nao existe!", HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(NoSuchElementException.class)
@@ -45,7 +45,7 @@ public class GlobalException {
 
     private ExceptionTransfer exceptionTransfer(String mensagem, String situacao) {
         ExceptionTransfer exceptionTransfer = new ExceptionTransfer();
-            exceptionTransfer.setData(DateUtility.formatarData(LocalDate.now(), DateUtility.FORMATO_DATA_DD_MM_YYYY));
+            exceptionTransfer.setData(DateUtility.retornaDataAtualFormatada(DateUtility.FORMATO_DATA_DD_MM_YYYY));
             exceptionTransfer.setMensagem(mensagem);
             exceptionTransfer.setSituacao(situacao);
         return exceptionTransfer;
