@@ -10,6 +10,12 @@ public class PessoaResponseTransfer {
 
     public PessoaResponseTransfer() { }
 
+    public PessoaResponseTransfer(Long codigo, String nome, String situacao) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.situacao = situacao;
+    }
+
     public Long getCodigo() {
         return codigo;
     }

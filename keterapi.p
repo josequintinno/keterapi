@@ -7,6 +7,7 @@
             curl https://localhost:8080 -o resposta.json
             curl -X POST "http://localhost:8080/api/v1/pessoa" -H "Content-Type: application/json" -d '{"nomeCompleto": "Grianrumo Noan Grotiagui Touim"}'
             curl -s "http://localhost:8080/api/v1/pessoa" | jq
+            curl -s -X PUT "http://localhost:8080/api/v1/pessoa/6" -H "Content-Type: application/json" -d '{"nomeCompleto": "Samuel Mariano"}' | jq
 
     -- Tarefas
 
@@ -36,6 +37,10 @@
         KETERAPI20240918102204
 
             🔵 feature: Implementar tratamento de Erros ao realizar requisicoes aos endpoints da funcionalidade de cadastro de pessoas
+
+        KETERAPI20240918145756
+
+            🔵 feature: Permite consultar dados por na funcionalidade de cadastro de pessoas
 
             🔵 feature:
             🔴 hotfix:

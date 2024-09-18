@@ -3,11 +3,14 @@ package br.com.quintinno.keterapi.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.quintinno.keterapi.converter.PessoaConverter;
 import br.com.quintinno.keterapi.entity.PessoaEntity;
+import br.com.quintinno.keterapi.repository.PessoaImplementRepository;
 import br.com.quintinno.keterapi.repository.PessoaRepository;
 import br.com.quintinno.keterapi.transfer.PessoaResponseTransfer;
 
@@ -16,6 +19,9 @@ public class PessoaService {
 
     @Autowired
     public PessoaRepository pessoaRepository;
+
+    @Autowired
+    public PessoaImplementRepository pessoaImplementRepository;
 
     public PessoaEntity create(PessoaEntity pessoaEntity) {
         return this.pessoaRepository.save(pessoaEntity);
@@ -63,6 +69,16 @@ public class PessoaService {
             this.pessoaRepository.save(pessoaEntity);
         }
         return String.format("A pessoa \"%s\" foi desativada com sucesso!", pessoaEntity.getNomeCompleto());
+    }
+
+    public List<PessoaResponseTransfer> findAllFilter(String nome) {
+        List<PessoaResponseTransfer> pessoaResponseTransferList = new ArrayList<>(); 
+        List<PessoaEntity> pessoaEntityList = this.pessoaRepository.findAll();
+        pessoaEntityList.stream()
+        .filter(pessoa -> pessoa.getNomeCompleto().equalsIgnoreCase(nome))
+        .map(pessoa -> PessoaConverter.converterEntityForTranfer(pessoa))
+        .collect(Collectors.toList());
+        return pessoaResponseTransferList;
     }
 
 }

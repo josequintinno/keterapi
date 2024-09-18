@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.quintinno.keterapi.entity.PessoaEntity;
@@ -33,6 +34,11 @@ public class PessoaController {
     @GetMapping
     public List<PessoaResponseTransfer> findAll() {
         return this.pessoaService.findAll();
+    }
+
+    @GetMapping("/filter")
+    public List<PessoaResponseTransfer> findAllFilter(@RequestParam(required = false) String nome) {
+        return this.pessoaService.findAllFilter(nome);
     }
 
     @PutMapping("{codigo}")
@@ -58,6 +64,17 @@ public class PessoaController {
             info.put("nomeTrascrito", "");
             info.put("dataNascimento", "");
             info.put("eAtivo", "true");
+        return info;
+    }
+
+    @GetMapping("/info/endpoint")
+    public Map<String, String> endpoint() {
+        Map<String, String> info = new HashMap<>();
+            info.put("GET_1", "http://<IP>/api/v1/pessoa/info");
+            info.put("GET_2", "http://<IP>/api/v1/pessoa/info/endpoint");
+            info.put("GET_3", "http://<IP>/api/v1/pessoa?nome=<NOME>");
+            info.put("GET_4", "http://<IP>/api/v1/pessoa?eAtivo=<ATIVO>");
+            info.put("GET_5", "http://<IP>/api/v1/pessoa?nome=<NOME>&eAtivo=<ATIVO>");
         return info;
     }
 
