@@ -70,18 +70,24 @@ public class PessoaController {
 
     @GetMapping("/info/endpoint")
     public Map<String, String> endpoint(HttpServletRequest httpServletRequest) {
-        Integer NUMERP_PORTA = httpServletRequest.getServerPort();
-        String NUMERO_IP = httpServletRequest.getRemoteAddr();
-        if ("0:0:0:0:0:0:0:1".equals(NUMERO_IP)) {
-            NUMERO_IP = "127.0.0.1".concat(":").concat(NUMERP_PORTA.toString());
-        }
         Map<String, String> info = new HashMap<>();
-            info.put("GET_1", String.format("http://%s/api/v1/pessoa/info", NUMERO_IP));
-            info.put("GET_2", "http://<IP>/api/v1/pessoa/info/endpoint");
-            info.put("GET_3", "http://<IP>/api/v1/pessoa?nome=<NOME>");
-            info.put("GET_4", "http://<IP>/api/v1/pessoa?eAtivo=<ATIVO>");
-            info.put("GET_5", "http://<IP>/api/v1/pessoa?nome=<NOME>&eAtivo=<ATIVO>");
+            info.put("GET_1", String.format("http://%s/api/v1/pessoa/info", this.recuperarEnderecoAPI(httpServletRequest)));
+            info.put("GET_2", "http://" + this.recuperarEnderecoAPI(httpServletRequest) + "/api/v1/pessoa/info/endpoint");
+            info.put("GET_3", "http://" + this.recuperarEnderecoAPI(httpServletRequest) + "/api/v1/pessoa?nome=<NOME>");
+            info.put("GET_4", "http://" + this.recuperarEnderecoAPI(httpServletRequest) + "/api/v1/pessoa?eAtivo=<ATIVO>");
+            info.put("GET_5", "http://" + this.recuperarEnderecoAPI(httpServletRequest) + "/api/v1/pessoa?nome=<NOME>&eAtivo=<ATIVO>");
         return info;
+    }
+
+    private String recuperarEnderecoAPI(HttpServletRequest httpServletRequest) {
+        Integer NUMERO_PORTA = httpServletRequest.getServerPort();
+        String NUMERO_IP_LOCAL = "0:0:0:0:0:0:0:1";
+        String NUMERO_IP = httpServletRequest.getRemoteAddr();
+        StringBuilder url = new StringBuilder();
+        if (NUMERO_IP_LOCAL.equals(NUMERO_IP)) {
+            url.append("127.0.0.1").append(":").append(NUMERO_PORTA.toString());
+        }
+        return url.toString();
     }
 
 }
