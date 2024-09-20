@@ -17,9 +17,9 @@ public class PessoaImplementRepository {
     public List<PessoaEntity> recuperarPessoaFiltroTransfer(String nome) {
         StringBuilder stringBuilder = new StringBuilder("SELECT pessoa ")
             .append("FROM PessoaEntity pessoa ")
-            .append("WHERE pessoa.nomeCompleto LIKE UPPER(:nomeParameter) ");
+            .append("WHERE UPPER(pessoa.nomeCompleto) LIKE :nomeParameter ");
         TypedQuery<PessoaEntity> pessoaEntityTypedQuery = this.entityManager.createQuery(stringBuilder.toString(), PessoaEntity.class);
-            pessoaEntityTypedQuery.setParameter("nomeParameter", "%" + nome + "%");
+            pessoaEntityTypedQuery.setParameter("nomeParameter", "%" + nome.toUpperCase() + "%");
         return pessoaEntityTypedQuery.getResultList();
     }
 
