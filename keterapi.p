@@ -44,6 +44,10 @@
             🔵 feature: Permite consultar dados por na funcionalidade de cadastro de pessoas
             🟡 refactor: Refactor de implementacoes
 
+        KETERAPI20240920110706
+
+            🔵 feature: Recuperar o endereço da API dinamicamente
+
             🔵 feature:
             🔴 hotfix:
             🟠 bugfix:
