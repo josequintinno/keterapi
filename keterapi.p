@@ -47,6 +47,10 @@
         KETERAPI20240920110706
 
             🔵 feature: Recuperar o endereço da API dinamicamente
+            
+        KETERAPI20241015095144
+        
+        	🔵 feature: Implementar modelagem da funcionalidade de Dependentes de Associado principal
 
             🔵 feature:
             🔴 hotfix:

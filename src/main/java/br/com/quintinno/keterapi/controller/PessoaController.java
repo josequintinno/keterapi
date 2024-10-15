@@ -68,12 +68,12 @@ public class PessoaController {
         return info;
     }
 
-    @GetMapping("/info/endpoint")
+    @GetMapping("/info/")
     public Map<String, String> endpoint(HttpServletRequest httpServletRequest) {
         Map<String, String> info = new HashMap<>();
             info.put("GET_1", String.format("http://%s/api/v1/pessoa/info", this.recuperarEnderecoAPI(httpServletRequest)));
             info.put("GET_2", "http://" + this.recuperarEnderecoAPI(httpServletRequest) + "/api/v1/pessoa/info/endpoint");
-            info.put("GET_3", "http://" + this.recuperarEnderecoAPI(httpServletRequest) + "/api/v1/pessoa?nome=<NOME>");
+            info.put("GET_3", "http://" + this.recuperarEnderecoAPI(httpServletRequest) + "/api/v1/pessoa/filter?nome=<NOME>");
             info.put("GET_4", "http://" + this.recuperarEnderecoAPI(httpServletRequest) + "/api/v1/pessoa?eAtivo=<ATIVO>");
             info.put("GET_5", "http://" + this.recuperarEnderecoAPI(httpServletRequest) + "/api/v1/pessoa?nome=<NOME>&eAtivo=<ATIVO>");
         return info;
