@@ -51,6 +51,10 @@
         KETERAPI20241015095144
         
         	🔵 feature: Implementar modelagem da funcionalidade de Dependentes de Associado principal
+        	
+        KETERAPI20241015100436
+        
+        	🔵 feature: Implementar modelagem da funcionalidade de Documentos de Pessoas
 
             🔵 feature:
             🔴 hotfix:
