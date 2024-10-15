@@ -6,11 +6,14 @@
     Data de Criação: 15/10/2024
 */
 
-insert into tb_pessoa (nome_completo) values ('José Quintino da Silva Júnior');
-insert into tb_pessoa (nome_completo) values ('Priscila da Silva Mariano');
-insert into tb_pessoa (nome_completo) values ('Davi Nilson Mariano');
-insert into tb_pessoa (nome_completo) values ('Emanuele Mariano Almeida');
-insert into tb_pessoa (nome_completo) values ('Samuel Evandro Mariano');
+insert into tb_pessoa (nome_completo) values ('Nahuyn Bika Gakaron Vemailas');
+insert into tb_pessoa (nome_completo) values ('Baido Thurinrye Kosoaku Mukbrakh');
+insert into tb_pessoa (nome_completo) values ('Shulpyo Albor Thrur Dumaob');
+insert into tb_pessoa (nome_completo) values ('Orph Kiakethir Zarandir Elim ');
+insert into tb_pessoa (nome_completo) values ('Sibug Ramonoum Tear Hallo');
+insert into tb_pessoa (nome_completo) values ('Qethar Hosharzol Koyadan Pigash');
+insert into tb_pessoa (nome_completo) values ('Kaxo Tayfivilli Meot');
+insert into tb_pessoa (nome_completo) values ('Roixiob Liwaoborn Insemub');
 
 -- "id_pessoa_dependente" deve ser representado em tabela associativa
 insert into tb_associado (id_tipo_relacionamento, id_pessoa, data_inicial_vinculo_associacao, data_final_vinculo_associacao) values (
