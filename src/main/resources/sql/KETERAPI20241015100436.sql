@@ -25,5 +25,3 @@ insert into tb_pessoa_documento (id_pessoa, id_documento) values (
 	(select codigo from tb_pessoa where nome_completo = 'Baido Thurinrye Kosoaku Mukbrakh'),
 	(select codigo from tb_documento where numero = '5847541')
 );
-
-select * from tb_pessoa_documento;

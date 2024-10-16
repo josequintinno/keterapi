@@ -68,7 +68,8 @@ create table if not exists tb_pessoa_documento (
 	usuario_alteracao varchar (50),
 	constraint pk_pessoa_documento_codigo primary key (codigo),
 	constraint fk_pessoa_documento_pessoa foreign key (id_pessoa) references tb_pessoa (codigo),
-	constraint fk_pessoa_documento_documento foreign key (id_documento) references tb_documento (codigo)
+	constraint fk_pessoa_documento_documento foreign key (id_documento) references tb_documento (codigo),
+	constraint un_pessoa_documento_id_documento unique (id_documento)
 );
 
 comment on table tb_pessoa_documento is 'Armazena os dados dos documentos gerenciados pelo sistema';

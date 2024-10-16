@@ -13,7 +13,9 @@ import jakarta.persistence.Table;
 @Table(schema = "public", name = "tb_tipo_relacionamento")
 public class TipoRelacionamentoEntity implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo", nullable = false)
     private Long codigo;
