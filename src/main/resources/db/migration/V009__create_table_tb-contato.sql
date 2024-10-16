@@ -20,11 +20,14 @@ create table if not exists tb_tipo_contato (
 comment on table tb_tipo_contato is 'Armazena os tipos de contatos gerenciados pelo sistema';
 comment on column tb_tipo_contato.codigo is 'Representa o indentificador único da tabela';
 
+insert into tb_tipo_contato (descricao) values ('Telefone');
+insert into tb_tipo_contato (descricao) values ('E-mail'); 
+
 create table if not exists tb_contato (
 	codigo serial not null,
 	id_tipo_contato integer not null,
 	descricao varchar (100) not null,
-	e_principal boolean not null,
+	e_principal boolean not null default true,
 	constraint pk_contato primary key (codigo),
 	constraint fk_contato_id_tipo_contrato foreign key (id_tipo_contato) references tb_tipo_contato (codigo),
 	constraint un_contato_descricao unique (descricao)
@@ -42,7 +45,8 @@ create table if not exists tb_pessoa_contato (
 	id_contato integer not null,
 	constraint pk_pessoa_contato primary key (codigo),
 	constraint fk_pessoa_contato_id_pessoa foreign key (id_pessoa) references tb_pessoa (codigo),
-	constraint fk_pessoa_contato_id_contato foreign key (id_contato) references tb_contato (codigo)
+	constraint fk_pessoa_contato_id_contato foreign key (id_contato) references tb_contato (codigo),
+	constraint un_pessoa_contato_id_pessoa_id_contato unique (id_pessoa, id_contato)
 );
 
 comment on table tb_pessoa_contato is 'Armazena os contatos das pessoas gerenciados pelo sistema';
