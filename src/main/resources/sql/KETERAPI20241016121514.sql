@@ -1,5 +1,5 @@
 /**
-    Demanda: KETERAPI20241015100436
+    Demanda: KETERAPI20241016121514
     Objetivo: Criar tabela responsável por gerenciar os contatos dos associados
     Observação: 
     Autor: José Quintinno
