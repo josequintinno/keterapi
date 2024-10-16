@@ -55,6 +55,10 @@
         KETERAPI20241015100436
         
         	🔵 feature: Implementar modelagem da funcionalidade de Documentos de Pessoas
+        	
+        KETERAPI20241016121514
+        
+        	🔵 feature: Implementar modelagem da funcionalidade de Contatos de Pessoas
 
             🔵 feature:
             🔴 hotfix:
