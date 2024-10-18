@@ -60,9 +60,14 @@
         
         	🔵 feature: Implementar modelagem da funcionalidade de Contatos de Pessoas
 
+        KETERAPI20241018170853
+
+            🔵 feature: Implementar modelagem da mapeamento da funcionalidade de Dependentes dos Associados
+
             🔵 feature:
             🔴 hotfix:
             🟠 bugfix:
             🟢 release:
             🟡 refactor: 
             🟣 test:
+            ⭕ document: 
